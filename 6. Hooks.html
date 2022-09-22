@@ -1,0 +1,66 @@
+State Vaiables:
+
+These variables when inserted into the code take the value at the time of execution.
+This means that if we change the value after execution the value taken earlier doesnot change.
+
+Functional Vaiables:
+
+These variables when inserted into the code take the value at the time of execution.
+This means that if we change the value after execution the value taken earlier doesnot change.
+
+Hooks:
+* Used to create variables changes in which gets implicated in all the portions of code.
+* All hooks must be created inside a function
+* Syntax:
+    const x=useState(init_val);
+    ===> x = [init_val,function]
+* Syntax:
+    const [cnt,changeCnt]=useState(init_val);
+    ===> cnt=init_val && changeCnt = function();
+    ===> changeCnt(nxt_val) ==> cnt=nxt_val
+* returns an array = [value,function]
+
+* The function can be used to change the value. the parameter passed into the function is the new value
+
+<script>
+    import React, { useState } from "react";
+
+    function App(){
+        let [val,setVal]=useState(0);
+        
+        function incNum(){
+            setVal(val+1);
+        }
+        return(
+            <>
+                <h1>{val}</h1>
+                <button onClick={incNum}>Click Me!</button>
+            </>
+        );
+    }
+
+    export default App;
+</script>
+
+
+Following code generates a clock::
+
+<script>
+    import React, { useState } from "react";
+
+    function App(){
+        let [val,setVal]=useState(new Date().toLocaleTimeString());
+        
+        function incNum(){
+            setVal(new Date().toLocaleTimeString());
+        }
+        setInterval(incNum,1000);
+        return(
+            <>
+                <h1>{val}</h1>
+            </>
+        );
+    }
+
+    export default App;
+</script>

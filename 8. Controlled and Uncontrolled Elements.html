@@ -1,0 +1,50 @@
+
+Input type components can be of two types based on who controls it React or the browser.
+
+Uncontrolled Elements:
+* These are controlled by the browser.
+* when rendering through react use defaultValue attribute
+
+Controlled Elements:
+* These are controlled by React.
+* They do not allow the value in it to be changed unless "onChange" controller is defined.
+* Here the value of the input needs to be accessed using the onChange controller.
+* onChange = func
+    ....
+    function func(event){
+        event.target=====>represents the input element.
+        event.target.value
+    } 
+<script>
+    import React, { useState } from "react";
+
+    function App(){
+        let [unc,setunc]=useState("");
+        let [c,setc]=useState("");
+        let [val,setval]=useState("");
+        function uncUpdate(){
+            console.log(document.getElementById("i1").value);
+            setunc(document.getElementById("i1").value);
+        }
+        function change(e){
+            setc(e.target.value);
+        }
+        return(
+            <>
+                <h3>Hello {unc}</h3>
+                <input type="text" defaultValue={unc} id="i1"/>
+                <br/>
+                <button onClick={uncUpdate}>Uncontrolled</button>
+                <br/>
+                <br/>
+                <h3>Hello {val}</h3>
+                <input type="text" onChange={change} value={c}/>
+                <br/>
+                <button onClick={()=>{setval(c)}}>Controlled</button>
+            </>
+        );
+    }
+
+    export default App;
+
+</script>

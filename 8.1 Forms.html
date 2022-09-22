@@ -1,0 +1,54 @@
+import React, { useState } from "react";
+
+function App(){
+    let [fullname,setfullname]=useState("");
+    
+    let [obj,setObj]=useState({
+        fname:"",
+        sname:"",
+        email:""
+    });
+    
+    function change(e){
+        setObj((cur)=>{
+            let ret={...cur};//If we use previous directly the values are passed by reference and hence change with change in cur
+            // Thus the following is not correct
+            // if(e.target.name==="fname")prev.fname=e.target.value;
+            // ..... return prev;
+            if(e.target.name==="fname")ret.fname=e.target.value;
+            if(e.target.name==="sname")ret.sname=e.target.value;
+            else if(e.target.name==="email")ret.email=e.target.value;
+            console.log(e.target.value);
+            return ret;
+        });
+    }
+    
+    function submit(e){
+        e.preventDefault();
+        setfullname(obj.fname+" "+obj.sname);
+        console.log(fullname);
+    }
+
+    return(
+        <>
+            <form>
+                <h1>Hello {fullname}</h1>
+                <h4>Name : </h4>
+                <input type="text" onChange={change} placeholder="Enter your Name" value={obj.fname} name="fname"/>
+                <br/>
+                <br/>
+                <h4>Surname : </h4>
+                <input type="text" onChange={change} placeholder="Enter your Surname" value={obj.sname} name="sname"/>
+                <br/>
+                <br/>
+                <h4>e-mail address : </h4>
+                <input type="text" onChange={change} placeholder="Enter your email" value={obj.email} name="email"/>
+                <br/>
+                <br/>
+                <button type="submit" onClick={submit}>Submit</button>
+            </form>
+        </>
+    );
+}
+
+export default App; 

@@ -1,0 +1,32 @@
+events in react js
+<script>
+    import React, { useState } from "react";
+
+    function App(){
+        let [name,setname]=useState("Click Me!");
+        let [bgcol,setcol]=useState("aqua");
+        function changeColor(){
+            let newcolor="pink";
+            setcol(newcolor);
+            setname("Restore");
+            console.log("pop",bgcol);
+        }
+        function restore(){
+            let newcolor="aqua";
+            setcol(newcolor);
+            setname("Click Me!");
+            console.log("pop",bgcol);
+        }
+        console.log(bgcol,typeof(bgcol));
+        return(
+            <>
+                <div style={{textAlign:'center',color:'black',backgroundColor:bgcol,height:"100vh"}}>
+                    <h1>Hello There Welcome to my Webpage</h1>
+                    <button onMouseOver={changeColor} onMouseOut={restore}>{name}</button>
+                </div>
+            </>
+        );
+    }
+
+    export default App;
+</script>

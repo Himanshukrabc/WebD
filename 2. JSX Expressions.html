@@ -1,0 +1,28 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// JSX EXPRESSIONS = = =  {}
+//   - This the way to use javascript within JSX.
+//   - Suppose we want to add the value of a variable inside a JSX post. then we need to use {}
+//   - Anything written inside {} will be evaluated by the JS engine.
+//   - {} only supportsexpressions and not statements.
+//   i.e. if..else , for, while etc cannot to be used inside {}
+
+const name="Himanshu Kumar";
+const g1="Cricket";
+const g2="Football";
+
+function myfun(){
+  return `Huzzah!!!!`;
+}
+
+ReactDOM.render(
+  <>
+    <h1>my name is {name}</h1>
+    <h1>my age is {new Date().getFullYear()-2002}</h1>
+    <h1>Today is {new Date().toLocaleDateString()}</h1>
+    <h1>Time : {new Date().toLocaleTimeString()}</h1>
+    <h1>I like {`${g1} and ${g2}`}</h1>
+    <h1>{myfun()}</h1>
+  </>,document.getElementById("root")
+);

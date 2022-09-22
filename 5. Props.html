@@ -1,0 +1,49 @@
+PROPS:
+
+* These are the properties of the user defined components.
+* Components also have properties which enhance reusability of code.
+* all the attribute declared ini the component tag are passed into the component function as an object.
+* this object can be named anything but conventionally props name is used
+
+
+<>
+    <h1>Netflix Series to watch</h1>
+    <Card
+        name="Altered Carbon"
+        src="pastelink"
+        title="A Nextflix Original Series"
+        link="pastelink"
+    />
+    <Card
+        name="The Witcher"
+        src="pastelink"
+        title="A Nextflix Original Series"
+        link="pastelink"
+    />
+    <Card
+        name="Stranger Things"
+        src="pastelink"
+        title="A Nextflix Original Series"
+        link="pastelink"
+    />
+</>
+
+
+import React from "react";
+
+function Card(props){
+   return ( <div className="deck">
+        <div className="card">
+            <img src={props.src} alt={props.name}></img>
+            <div className="info">
+                <h3>{props.name}</h3>
+                <div>{props.title}</div>
+                <a href={props.link}>
+                    <button>Watch Now</button>
+                </a>
+            </div>
+        </div>
+    </div>);
+}
+
+export default Card;

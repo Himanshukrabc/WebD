@@ -1,0 +1,31 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(<h1>Hello World!!!</h1>,//<=== JSX
+  document.getElementById("root"));
+
+// RENDERING MULTIPLE OBJECTS
+//    In order to pass mltiple elements, we need to enclose them in 
+//      1. a enclosing tag i.e. <div></div>.
+
+// REACT.FRAGMENT
+//      However it is more suitable to use <React.Fragment></React.Fragment>
+//      This is because using <div></div> adds the elements within a div tag.
+//      <React.Fragment></React.Fragment> === <></>
+
+ReactDOM.render(
+  <>
+    <h2>Hi</h2>
+    <p>lorem ipsum</p>
+  </>,
+  document.getElementById("root")
+);
+
+// 2. in the form of array
+
+// ReactDOM.render(
+//   [ <h2>Hi</h2>,
+//     <h2>Hiii</h2>,
+//     <p>lorem ipsum</p>],
+//   document.getElementById("root")
+// );
